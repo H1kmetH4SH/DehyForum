@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ post[1] }}</title>
+    <link rel="stylesheet" href="ll.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="my-4">{{ post[1] }}</h1>
+                <p>{{ post[2] }}</p>
+                <hr>
+                <h2 class="my-4">Comments</h2>
+                <ul class="list-unstyled">
+                    % for comment in comments:
+                        <li class="mb-3">{{ comment[2] }}</li>
+                    % end
+                </ul>
+                <form method="post" action="/add_comment">
+                    <input type="hidden" name="post_id" value="{{ post[0] }}">
+                    <div class="form-group">
+                        <label for="comment">Add a comment:</label>
+                        <textarea class="form-control" name="content" id="comment" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>>
+</body>
+</html>
